@@ -1,45 +1,46 @@
-<%= form_for(@profile) do |f| %>
-  <% if @profile.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
-
-      <ul>
-      <% @profile.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= form_for @profile, :html => { :class => 'form-horizontal form-model' } do |f| %>
+  <div class="form-group">
+    <%= f.label :first_name, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :first_name, :class => 'text-field form-control' %>
     </div>
-  <% end %>
+  </div>
+  <div class="form-group">
+    <%= f.label :last_name, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :last_name, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :postal, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :postal, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :user_url, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :user_url, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :bio, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :bio, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :avitar, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :avitar, :class => 'text-field form-control' %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :first_name %><br>
-    <%= f.text_area :first_name %>
-  </div>
-  <div class="field">
-    <%= f.label :last_name %><br>
-    <%= f.text_area :last_name %>
-  </div>
-  <div class="field">
-    <%= f.label :postal %><br>
-    <%= f.text_field :postal %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :user_url %><br>
-    <%= f.text_field :user_url %>
-  </div>
-  <div class="field">
-    <%= f.label :bio %><br>
-    <%= f.text_area :bio %>
-  </div>
-  <div class="field">
-    <%= f.label :avitar %><br>
-    <%= f.text_area :avitar %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  profiles_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>

@@ -1,39 +1,34 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Profile -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Profile %></h1>
+</div>
 
-<p>
-  <strong>First name:</strong>
-  <%= @profile.first_name %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:first_name) %></dt>
+      <dd><pre class="prettyprint"><%= @profile.first_name %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:last_name) %></dt>
+      <dd><pre class="prettyprint"><%= @profile.last_name %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:postal) %></dt>
+      <dd><pre class="prettyprint"><%= @profile.postal %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:user_url) %></dt>
+      <dd><pre class="prettyprint"><%= @profile.user_url %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:bio) %></dt>
+      <dd><pre class="prettyprint"><%= @profile.bio %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:avitar) %></dt>
+      <dd><pre class="prettyprint"><%= @profile.avitar %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @profile.last_name %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              profiles_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_profile_path(@profile), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              profile_path(@profile),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Postal:</strong>
-  <%= @profile.postal %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @profile.user %>
-</p>
-
-<p>
-  <strong>User url:</strong>
-  <%= @profile.user_url %>
-</p>
-
-<p>
-  <strong>Bio:</strong>
-  <%= @profile.bio %>
-</p>
-
-<p>
-  <strong>Avitar:</strong>
-  <%= @profile.avitar %>
-</p>
-
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%= link_to 'Back', profiles_path %>
