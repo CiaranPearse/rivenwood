@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Update emails:</strong>
+  <%= @setting.update_emails %>
+</p>
+
+<p>
+  <strong>Digest emails:</strong>
+  <%= @setting.digest_emails %>
+</p>
+
+<p>
+  <strong>Promotional emails:</strong>
+  <%= @setting.promotional_emails %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @setting.user %>
+</p>
+
+<%= link_to 'Edit', edit_setting_path(@setting) %> |
+<%= link_to 'Back', settings_path %>

@@ -1,0 +1,33 @@
+<%= form_for(@setting) do |f| %>
+  <% if @setting.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@setting.errors.count, "error") %> prohibited this setting from being saved:</h2>
+
+      <ul>
+      <% @setting.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :update_emails %><br>
+    <%= f.check_box :update_emails %>
+  </div>
+  <div class="field">
+    <%= f.label :digest_emails %><br>
+    <%= f.check_box :digest_emails %>
+  </div>
+  <div class="field">
+    <%= f.label :promotional_emails %><br>
+    <%= f.check_box :promotional_emails %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.text_field :user_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
