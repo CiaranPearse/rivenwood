@@ -1,24 +1,28 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Setting -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Setting %></h1>
+</div>
 
-<p>
-  <strong>Update emails:</strong>
-  <%= @setting.update_emails %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:update_emails) %></dt>
+      <dd><pre class="prettyprint"><%= @setting.update_emails %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:digest_emails) %></dt>
+      <dd><pre class="prettyprint"><%= @setting.digest_emails %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:promotional_emails) %></dt>
+      <dd><pre class="prettyprint"><%= @setting.promotional_emails %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Digest emails:</strong>
-  <%= @setting.digest_emails %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              settings_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_setting_path(@setting), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              setting_path(@setting),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Promotional emails:</strong>
-  <%= @setting.promotional_emails %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @setting.user %>
-</p>
-
-<%= link_to 'Edit', edit_setting_path(@setting) %> |
-<%= link_to 'Back', settings_path %>
