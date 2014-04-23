@@ -1,4 +1,6 @@
 Rivenwood::Application.routes.draw do
+  resources :profiles
+
   resources :settings
 
   resources :recipes
