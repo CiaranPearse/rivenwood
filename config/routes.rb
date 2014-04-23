@@ -1,4 +1,5 @@
 Rivenwood::Application.routes.draw do
+  get "users/index"
   resources :profiles
 
   resources :settings
